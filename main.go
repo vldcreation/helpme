@@ -160,9 +160,43 @@ func main() {
 		var exampleCode string
 		var findExample func(*html.Node)
 		findExample = func(n *html.Node) {
-			if n.Type == html.ElementNode && n.Data == "textarea" {
+			if n.Type == html.ElementNode && n.Data == "details" {
 				for _, attr := range n.Attr {
-					if attr.Key == "class" && strings.Contains(attr.Val, "Documentation-exampleCode") {
+					if attr.Key == "id" && strings.Contains(attr.Val, fmt.Sprintf("example-%s", funcName)) {
+						// Extraxt child with tag div.Docmentation-exampleDetailsBody
+						findChild := func(n *html.Node) *html.Node {
+							if n.Type == html.ElementNode && n.Data == "div" {
+								for _, attr := range n.Attr {
+									if attr.Key == "class" && strings.Contains(attr.Val, "Documentation-exampleDetailsBody") {
+										return n
+									}
+								}
+							}
+							return nil
+						}
+						copyN := &html.Node{}
+						*copyN = *n
+
+						for c := copyN.FirstChild; c != nil; c = c.NextSibling {
+							if child := findChild(c); child != nil {
+								n = child
+								// if  child exists, extra only child that has tag pre.Documentation-exampleCode
+								for c := n.FirstChild; c != nil; c = c.NextSibling {
+									if c.Type == html.ElementNode && c.Data == "pre" {
+										for _, attr := range c.Attr {
+											if attr.Key == "class" && strings.Contains(attr.Val, "Documentation-exampleCode") {
+												n = c
+												break
+											}
+										}
+									}
+								}
+								break
+							}
+						}
+
+						// Extract only
+
 						var b strings.Builder
 						var extractText func(*html.Node)
 						extractText = func(n *html.Node) {
