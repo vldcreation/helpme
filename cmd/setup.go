@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type SetupCommand struct {
+type setupCommand struct {
 	cmd *cobra.Command
 
 	// flags
@@ -14,8 +14,8 @@ type SetupCommand struct {
 	template string
 }
 
-func NewSetupCommand() *SetupCommand {
-	apps := &SetupCommand{}
+func NewSetupCommand() *setupCommand {
+	apps := &setupCommand{}
 	cmd := &cobra.Command{
 		Use:   "setup",
 		Short: "Setup project templates",
@@ -30,11 +30,11 @@ func NewSetupCommand() *SetupCommand {
 	return apps
 }
 
-func (c *SetupCommand) Command() *cobra.Command {
+func (c *setupCommand) Command() *cobra.Command {
 	c.cmd.Run = c.Execute
 	return c.cmd
 }
 
-func (c *SetupCommand) Execute(_ *cobra.Command, args []string) {
+func (c *setupCommand) Execute(_ *cobra.Command, args []string) {
 	fmt.Printf("Creating Project Template")
 }

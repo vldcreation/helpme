@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type FindCommand struct {
+type findCommand struct {
 	cmd *cobra.Command
 
 	// flags
@@ -16,8 +16,8 @@ type FindCommand struct {
 	exec bool
 }
 
-func NewFindCommand() *FindCommand {
-	apps := &FindCommand{}
+func NewFindCommand() *findCommand {
+	apps := &findCommand{}
 	cmd := &cobra.Command{
 		Use:   "find",
 		Short: "Find an example for a given function",
@@ -36,11 +36,11 @@ func NewFindCommand() *FindCommand {
 	return apps
 }
 
-func (c *FindCommand) Command() *cobra.Command {
+func (c *findCommand) Command() *cobra.Command {
 	c.cmd.Run = c.Execute
 	return c.cmd
 }
 
-func (c *FindCommand) Execute(_ *cobra.Command, args []string) {
+func (c *findCommand) Execute(_ *cobra.Command, args []string) {
 	fmt.Printf("Please implement me\n")
 }
