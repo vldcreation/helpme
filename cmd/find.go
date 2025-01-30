@@ -14,18 +14,10 @@ type findCommand struct {
 	pkg  string
 	save bool
 	exec bool
-
-	// config
-	docBase map[string]string
 }
 
 func NewFindCommand() *findCommand {
-	apps := &findCommand{
-		docBase: map[string]string{
-			"go":         "https://pkg.go.dev/",
-			"javascript": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/",
-		},
-	}
+	apps := &findCommand{}
 	cmd := &cobra.Command{
 		Use:   "find",
 		Short: "Find an example for a given function",
@@ -53,8 +45,18 @@ func (c *findCommand) Execute(_ *cobra.Command, args []string) {
 	funcName := args[0]
 
 	l := pkg_generator.NewLanguage(c.lang, c.pkg, funcName)
-
-	if err := pkg_generator.NewGenerator(l).Generate(); err != nil {
+	if err := pkg_generator.NewGenerator(l, c.generateFlagOpts()...).Generate(); err != nil {
 		panic(err)
 	}
+}
+
+func (c *findCommand) generateFlagOpts() (opts []pkg_generator.FlagOpt) {
+	if c.save {
+		opts = append(opts, pkg_generator.WithSave())
+	}
+	if c.exec {
+		opts = append(opts, pkg_generator.WithExecute())
+	}
+
+	return
 }
