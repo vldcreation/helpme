@@ -3,6 +3,6 @@ package pkg
 import _ "embed"
 
 var (
-	// go:embed pkg.tmpl
+	//go:embed default.tmpl
 	DefaultPackage string
 )
