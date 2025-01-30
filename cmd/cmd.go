@@ -40,7 +40,5 @@ func (app *App) Execute() error {
 		slog.Error("Error executing root command", "error", err)
 		return err
 	}
-
-	slog.Info("Root command executed successfully")
 	return nil
 }
