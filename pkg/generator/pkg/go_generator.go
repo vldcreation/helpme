@@ -70,14 +70,7 @@ func (g *goGenerator) writeExample(b []byte) (string, error) {
 }
 
 func (g *goGenerator) getFileExtension() string {
-	switch g.l.lang {
-	case "go", "golang":
-		return "go"
-	case "javascript", "js":
-		return "js"
-	default:
-		return ""
-	}
+	return "go"
 }
 
 func (g *goGenerator) getSavePath() string {
