@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	pkg_generator "vldcreation/github.com/helpme/cmd/generator/pkg"
+	pkg_generator "vldcreation/github.com/helpme/pkg/generator/pkg"
 
 	"github.com/spf13/cobra"
 )
