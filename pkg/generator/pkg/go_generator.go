@@ -9,7 +9,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"strings"
 	tmpl "vldcreation/github.com/helpme/templates/go/pkg"
 
@@ -24,7 +23,7 @@ type goGenerator struct {
 func (g *goGenerator) Generate() error {
 	sampleCode := g.generateExample()
 
-	if g.l.f.save {
+	if g.l.save {
 		filePath, err := g.writeExample([]byte(sampleCode))
 		if err != nil {
 			return err
@@ -32,7 +31,7 @@ func (g *goGenerator) Generate() error {
 
 		fmt.Printf("Example code saved to: %s\n", filePath)
 
-		if g.l.f.execute {
+		if g.l.execute {
 			fmt.Printf("Running example code...\n")
 			cmd := exec.Command("go", "run", g.getSavePath())
 			cmd.Stdout = os.Stdout
@@ -74,11 +73,26 @@ func (g *goGenerator) getFileExtension() string {
 }
 
 func (g *goGenerator) getSavePath() string {
-	_, b, _, _ := runtime.Caller(0)
-	rootPath := filepath.Join(filepath.Dir(b), "../../../")
+	path := g.l.dir
+	if path == "" {
+		path = "./"
+	}
+
+	// Get current working directory for relative paths
+	cwd, err := os.Getwd()
+	if err != nil {
+		slog.Error("failed to get working directory", "error", err)
+		cwd = "."
+	}
+
+	// Handle relative paths from current working directory
+	if !filepath.IsAbs(path) {
+		path = filepath.Join(cwd, path)
+	}
+
 	fileName := fmt.Sprintf("example_%s_%s.%s", g.l.pkg, g.l.funcName, g.getFileExtension())
 	filePath := filepath.Join("examples", g.l.lang, fileName)
-	filePath = filepath.Join(rootPath, filePath)
+	filePath = filepath.Join(path, filePath)
 	return filePath
 }
 
