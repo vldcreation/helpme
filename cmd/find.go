@@ -14,6 +14,7 @@ type findCommand struct {
 	pkg  string
 	save bool
 	exec bool
+	dir  string
 }
 
 func NewFindCommand() *findCommand {
@@ -29,6 +30,7 @@ func NewFindCommand() *findCommand {
 	cmd.PersistentFlags().StringVarP(&apps.pkg, "pkg", "p", "", "Package name (optional)")
 	cmd.PersistentFlags().BoolVarP(&apps.save, "save", "s", false, "Save example to a file")
 	cmd.PersistentFlags().BoolVarP(&apps.exec, "exec", "e", false, "Run the saved example file")
+	cmd.PersistentFlags().StringVarP(&apps.dir, "dir", "d", ".", "Directory to save the example file")
 
 	cmd.MarkPersistentFlagRequired("lang")
 
@@ -50,9 +52,9 @@ func (c *findCommand) Execute(_ *cobra.Command, args []string) {
 	}
 }
 
-func (c *findCommand) generateFlagOpts() (opts []pkg_generator.FlagOpt) {
+func (c *findCommand) generateFlagOpts() (opts []pkg_generator.LangOpt) {
 	if c.save {
-		opts = append(opts, pkg_generator.WithSave())
+		opts = append(opts, pkg_generator.WithSave(c.dir))
 	}
 	if c.exec {
 		opts = append(opts, pkg_generator.WithExecute())
