@@ -4,13 +4,13 @@ type generator interface {
 	Generate() error
 }
 
-func NewGenerator(l Language, opt ...FlagOpt) generator {
+func NewGenerator(l Language, opt ...LangOpt) generator {
 	if l.lang == "" {
 		return nil
 	}
 
 	for _, o := range opt {
-		o(&l.f)
+		o(&l)
 	}
 
 	switch l.lang {

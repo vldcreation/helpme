@@ -5,9 +5,11 @@ type Language struct {
 	lang     string
 	pkg      string
 	funcName string
+	dir      string
 
-	// flag
-	f flag
+	// opt
+	execute bool
+	save    bool
 }
 
 func NewLanguage(lang, pkg, funcName string) Language {
@@ -19,29 +21,24 @@ func NewLanguage(lang, pkg, funcName string) Language {
 }
 
 // apply flag
-func (l *Language) Apply(opt ...FlagOpt) {
+func (l *Language) Apply(opt ...LangOpt) {
 	for _, o := range opt {
-		o(&l.f)
+		o(l)
 	}
 }
 
-// flag
-type flag struct {
-	execute bool
-	save    bool
-}
+type LangOpt func(*Language)
 
-type FlagOpt func(*flag)
-
-func WithExecute() FlagOpt {
-	return func(f *flag) {
+func WithExecute() LangOpt {
+	return func(f *Language) {
 		f.execute = true
 	}
 }
 
-func WithSave() FlagOpt {
-	return func(f *flag) {
+func WithSave(dir string) LangOpt {
+	return func(f *Language) {
 		f.save = true
+		f.dir = dir
 	}
 }
 
