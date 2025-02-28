@@ -1,7 +1,7 @@
 package main
 
 import (
-	"vldcreation/github.com/helpme/cmd"
+	"github.com/vldcreation/helpme/cmd"
 )
 
 const (

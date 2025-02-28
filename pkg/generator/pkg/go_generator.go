@@ -10,7 +10,8 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
-	tmpl "vldcreation/github.com/helpme/templates/go/pkg"
+
+	tmpl "github.com/vldcreation/helpme/templates/go/pkg"
 
 	"golang.org/x/net/html"
 )

@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	password_generator "vldcreation/github.com/helpme/pkg/generator/password"
+	password_generator "github.com/vldcreation/helpme/pkg/generator/password"
 
 	"github.com/spf13/cobra"
 )

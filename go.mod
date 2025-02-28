@@ -1,4 +1,4 @@
-module vldcreation/github.com/helpme
+module github.com/vldcreation/helpme
 
 go 1.23.5
 
