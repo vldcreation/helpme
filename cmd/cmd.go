@@ -29,6 +29,7 @@ func NewApp() CMD {
 		NewFindCommand().Command(),
 		NewSetupCommand().Command(),
 		NewGeneratePasswordCommand().Command(),
+		NewPullCommand().Command(),
 	)
 
 	return &App{
