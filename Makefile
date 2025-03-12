@@ -33,3 +33,31 @@ install: $(helpme)
 clean:
 	@echo "Cleaning..."
 	@rm -rf $(build_dir)
+
+.PHONY: pull
+
+# Default values
+BRANCH ?= master
+
+# Repository mapping
+REPO_USER := vldcreation
+REPO_NAME := helpme-package
+
+# Parse repository type from command line
+ifneq (,$(findstring pkg,$(r)))
+	REPO_NAME := helpme-package
+else ifneq (,$(findstring src,$(r)))
+	REPO_NAME := go-ressources
+else
+	$(error Invalid repository flag. Use r=pkg or r=src)
+endif
+
+# Override branch if specified
+ifneq (,$(b))
+	BRANCH := $(b)
+endif
+
+pull:
+	@echo "Pulling from $(REPO_USER)/$(REPO_NAME) branch: $(BRANCH)"
+	@$(build_dir)/helpme pull -u=$(REPO_USER) -r=$(REPO_NAME) -b=$(BRANCH)
+	
