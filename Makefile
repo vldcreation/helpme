@@ -1,7 +1,14 @@
-.PHONY: gen_mem_password_example gen_secure_password_example find_go_pkg_strings_example build install clean
+.PHONY: gen_mem_password_example gen_secure_password_example find_go_pkg_strings_example build install clean pull
 
 build_dir=./bin
 helpme=$(build_dir)/helpme
+
+# Default values
+BRANCH ?= master
+
+# Repository mapping
+REPO_USER := vldcreation
+REPO_NAME := helpme-package
 
 .DEFAULT_GOAL := all
 
@@ -34,30 +41,18 @@ clean:
 	@echo "Cleaning..."
 	@rm -rf $(build_dir)
 
-.PHONY: pull
-
-# Default values
-BRANCH ?= master
-
-# Repository mapping
-REPO_USER := vldcreation
-REPO_NAME := helpme-package
-
-# Parse repository type from command line
-ifneq (,$(findstring pkg,$(r)))
-	REPO_NAME := helpme-package
-else ifneq (,$(findstring src,$(r)))
-	REPO_NAME := go-ressources
-else
-	$(error Invalid repository flag. Use r=pkg or r=src)
-endif
-
-# Override branch if specified
-ifneq (,$(b))
-	BRANCH := $(b)
-endif
-
 pull:
-	@echo "Pulling from $(REPO_USER)/$(REPO_NAME) branch: $(BRANCH)"
-	@$(build_dir)/helpme pull -u=$(REPO_USER) -r=$(REPO_NAME) -b=$(BRANCH)
+	@if [ "$(r)" = "pkg" ]; then \
+		REPO_NAME="helpme-package"; \
+	elif [ "$(r)" = "src" ]; then \
+		REPO_NAME="go-ressources"; \
+	else \
+		echo "Invalid repository flag. Use r=pkg or r=src"; \
+		exit 1; \
+	fi; \
+	if [ ! -z "$(b)" ]; then \
+		BRANCH="$(b)"; \
+	fi; \
+	echo "Pulling from $(REPO_USER)/$(REPO_NAME) branch: $(BRANCH)"; \
+	$(build_dir)/helpme pull -u=$(REPO_USER) -r=$(REPO_NAME) -b=$(BRANCH)
 	
