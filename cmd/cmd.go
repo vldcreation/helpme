@@ -30,6 +30,7 @@ func NewApp() CMD {
 		NewSetupCommand().Command(),
 		NewGeneratePasswordCommand().Command(),
 		NewPullCommand().Command(),
+		NewRunTestCommand().Command(),
 	)
 
 	return &App{

@@ -7,12 +7,8 @@ github.com/spf13/cobra v1.8.1/go.mod h1:wHxEcudfqmLYa8iTfL+OuZPbBZkmvliBWKIezN3k
 github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
 github.com/spf13/pflag v1.0.6 h1:jFzHGLGAlb3ruxLB8MhbI6A8+AQX/2eW4qeyNZXNp2o=
 github.com/spf13/pflag v1.0.6/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
-github.com/vldcreation/helpme-package v0.0.0-20250228033033-354e32c5c67b h1:G9/a93hC0U9NkHYoJSWiL2fB3ZjF6czdccB6sPHyACQ=
-github.com/vldcreation/helpme-package v0.0.0-20250228033033-354e32c5c67b/go.mod h1:e6LMZa9G0LPO3+nmb57/dlkkQCuPOn2v2CUeGV+JVus=
-github.com/vldcreation/helpme-package v0.0.0-20250228035114-97c4bdb126e8 h1:MQl2w9MpFVGFncUtKouCXUIMUaCHo0yLtaHNo0498tw=
-github.com/vldcreation/helpme-package v0.0.0-20250228035114-97c4bdb126e8/go.mod h1:e6LMZa9G0LPO3+nmb57/dlkkQCuPOn2v2CUeGV+JVus=
-github.com/vldcreation/helpme-package/pkg v0.0.0-20250228033033-354e32c5c67b h1:DTF6qAzi3lNkT08ZO1pSKruwoPFlilSM16+P0AhqvEA=
-github.com/vldcreation/helpme-package/pkg v0.0.0-20250228033033-354e32c5c67b/go.mod h1:wObbyjD3JVm8oZKYMHxMOJOxJDlwgUfdy9Ah6Gb+gmo=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250312031606-8f3adeb6188b h1:IVB/yTReDgFbXF1CcmrwEHqAYNL5bz3uNnOumscZHlg=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250312031606-8f3adeb6188b/go.mod h1:wObbyjD3JVm8oZKYMHxMOJOxJDlwgUfdy9Ah6Gb+gmo=
 golang.org/x/net v0.35.0 h1:T5GQRQb2y08kTAByq9L4/bz8cipCdA8FbRTXewonqY8=
 golang.org/x/net v0.35.0/go.mod h1:EglIi67kWsHKlRzzVMUD93VMSWGFOMSZgxFjparz1Qk=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
