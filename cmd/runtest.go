@@ -46,7 +46,9 @@ func (c *runtestCmd) Command() *cobra.Command {
 }
 
 func (c *runtestCmd) Execute(_ *cobra.Command, args []string) {
-	if _, _, err := runtest.RunTest(c.fpath, c.funcName, c.mustReturnOutput, c.inPath, c.outPath); err != nil {
+	if res, _, err := runtest.RunTest(c.fpath, c.funcName, c.mustReturnOutput, c.inPath, c.outPath); err != nil {
 		println(err.Error())
+	} else {
+		println(res)
 	}
 }
