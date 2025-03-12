@@ -3,13 +3,6 @@
 build_dir=./bin
 helpme=$(build_dir)/helpme
 
-# Default values
-BRANCH ?= master
-
-# Repository mapping
-REPO_USER := vldcreation
-REPO_NAME := helpme-package
-
 .DEFAULT_GOAL := all
 
 all: $(helpme) gen_mem_password_example gen_secure_password_example find_go_pkg_strings_example
@@ -41,18 +34,31 @@ clean:
 	@echo "Cleaning..."
 	@rm -rf $(build_dir)
 
+# Default values
+BRANCH ?= master
+
+# Repository mapping
+REPO_USER := vldcreation
+REPO_NAME := helpme-package/pkg
+# Target: pull
 pull:
+	@if [ -z "$(r)" ]; then \
+		echo "Repository flag 'r' is not set. Use make pull r=pkg or r=src"; \
+		exit 1; \
+	fi; \
+
 	@if [ "$(r)" = "pkg" ]; then \
-		REPO_NAME="helpme-package"; \
+		REPO_NAME="helpme-package/pkg"; \
 	elif [ "$(r)" = "src" ]; then \
 		REPO_NAME="go-ressources"; \
 	else \
 		echo "Invalid repository flag. Use r=pkg or r=src"; \
 		exit 1; \
 	fi; \
-	if [ ! -z "$(b)" ]; then \
+
+	@if [ ! -z "$(b)" ]; then \
 		BRANCH="$(b)"; \
 	fi; \
-	echo "Pulling from $(REPO_USER)/$(REPO_NAME) branch: $(BRANCH)"; \
+
+	@echo "Pulling from $(REPO_USER)/$(REPO_NAME) branch: $(BRANCH)"; \
 	$(build_dir)/helpme pull -u=$(REPO_USER) -r=$(REPO_NAME) -b=$(BRANCH)
-	
