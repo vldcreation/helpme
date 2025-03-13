@@ -42,7 +42,7 @@ jobs:
           COMMIT: ${{ github.sha }}
           DATE: ${{ github.event.head_commit.timestamp }}
         run: |
-          go build -ldflags="-X github.com/vldcreation/helpme/cmd.version=${{ env.VERSION }} -X github.com/vldcreation/helpme/cmd.commit=${{ env.COMMIT }} -X github.com/vldcreation/helpme/cmd.date=${{ env.DATE }}" -o bin/ .
+          go build -ldflags="-X github.com/vldcreation/helpme/cmd.Version=${{ env.VERSION }} -X github.com/vldcreation/helpme/cmd.Commit=${{ env.COMMIT }} -X github.com/vldcreation/helpme/cmd.Date=${{ env.DATE }}" -o bin/ .
           
       - name: Create and Push Tag
         run: |
