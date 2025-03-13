@@ -61,4 +61,5 @@ pull:
 	fi; \
 
 	@echo "Pulling from $(REPO_USER)/$(REPO_NAME) branch: $(BRANCH)"; \
-	$(build_dir)/helpme pull -u=$(REPO_USER) -r=$(REPO_NAME) -b=$(BRANCH)
+	$(build_dir)/helpme pull -u=$(REPO_USER) -r=$(REPO_NAME) -b=$(BRANCH); \
+    go mod vendor
