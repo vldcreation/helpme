@@ -35,6 +35,14 @@ jobs:
           major_pattern: "BREAKING CHANGE:"
           minor_pattern: "feat:"
           version_format: "${major}.${minor}.${patch}-beta${increment}"
+
+      - name: Build
+        VERSION=$(cat VERSION)
+        COMMIT=$(git rev-parse --short HEAD)
+        DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+        BUILD="${VERSION}-${COMMIT}-${DATE}"
+        echo "build=${BUILD}" >> $GITHUB_ENV
+        go build -ldflags="-X github.com/vldcreation/helpme/cmd.version=${VERSION} -X github.com/vldcreation/helpme/cmd.commit=${COMMIT} -X github.com/vldcreation/helpme/cmd.date=${DATE}" -o bin/ .
           
       - name: Create and Push Tag
         run: |
