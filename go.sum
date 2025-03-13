@@ -33,6 +33,10 @@ github.com/vldcreation/helpme-package/pkg v0.0.0-20250312160942-9521c52ba8ab h1:
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250312160942-9521c52ba8ab/go.mod h1:wObbyjD3JVm8oZKYMHxMOJOxJDlwgUfdy9Ah6Gb+gmo=
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250312161936-d6e243f814c8 h1:GhAuwheA8B5oGHwrWYy6O0n306NCenZVL5vRuXBQKGc=
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250312161936-d6e243f814c8/go.mod h1:wObbyjD3JVm8oZKYMHxMOJOxJDlwgUfdy9Ah6Gb+gmo=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250312234259-d37f4058868b h1:ucKuc2Bn+0uLbVZvCIyX7k+qNtn3pV3im81vgkwZqIc=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250312234259-d37f4058868b/go.mod h1:wObbyjD3JVm8oZKYMHxMOJOxJDlwgUfdy9Ah6Gb+gmo=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250312234932-4c93f0bd77c9 h1:6HiW83yRDEbi1OsI2NmT3MWJ4Wv01T79ZzqNNL8olFc=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250312234932-4c93f0bd77c9/go.mod h1:wObbyjD3JVm8oZKYMHxMOJOxJDlwgUfdy9Ah6Gb+gmo=
 golang.org/x/net v0.35.0 h1:T5GQRQb2y08kTAByq9L4/bz8cipCdA8FbRTXewonqY8=
 golang.org/x/net v0.35.0/go.mod h1:EglIi67kWsHKlRzzVMUD93VMSWGFOMSZgxFjparz1Qk=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=

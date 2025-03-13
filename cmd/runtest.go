@@ -32,7 +32,6 @@ func NewRunTestCommand() *runtestCmd {
 	cmd.PersistentFlags().StringVarP(&apps.outPath, "output", "o", "", "Output path sample")
 
 	cmd.MarkPersistentFlagRequired("file")
-	cmd.MarkPersistentFlagRequired("func")
 	cmd.MarkPersistentFlagRequired("input")
 	cmd.MarkPersistentFlagRequired("output")
 
