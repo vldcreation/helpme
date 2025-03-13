@@ -34,11 +34,11 @@ jobs:
           tag_prefix: "v"
           major_pattern: "BREAKING CHANGE:"
           minor_pattern: "feat:"
-          version_format: "${major}.${minor}.${patch}-beta${increment}"
+          version_format: "v${major}.${minor}.${patch}-beta${increment}"
 
       - name: Build
         env:
-          VERSION=$(cat VERSION)
+          VERSION=${{ steps.semver.outputs.version }}
           COMMIT=$(git rev-parse --short HEAD)
           DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           BUILD="${VERSION}-${COMMIT}-${DATE}"
@@ -52,8 +52,8 @@ jobs:
         run: |
           git config --global user.name ${{ secrets.GIT_USERNAME }}
           git config --global user.email ${{ secrets.GIT_EMAIL }}
-          git tag -f v${{ steps.semver.outputs.version }}
-          git push origin -f v${{ steps.semver.outputs.version }}
+          git tag -f ${{ steps.semver.outputs.version }}
+          git push origin -f ${{ steps.semver.outputs.version }}
           
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
@@ -63,4 +63,4 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NEW_VERSION: v${{ steps.semver.outputs.version }}
+          NEW_VERSION: ${{ steps.semver.outputs.version }}
