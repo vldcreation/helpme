@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"log/slog"
 
 	"github.com/spf13/cobra"
@@ -14,6 +15,16 @@ type App struct {
 	root *cobra.Command
 }
 
+var (
+	Version string
+	Build   string
+	Commit  string
+)
+
+func printVersion() string {
+	return fmt.Sprintf("Version: %s\nBuild: %s\nCommit: %s", Version, Build, Commit)
+}
+
 func NewApp() CMD {
 	rootCmd := &cobra.Command{
 		Use:   "helpme",
@@ -23,6 +34,8 @@ func NewApp() CMD {
 			slog.Info("Root command executed successfully")
 		},
 	}
+
+	rootCmd.Version = printVersion()
 
 	// Register subcommands
 	rootCmd.AddCommand(
