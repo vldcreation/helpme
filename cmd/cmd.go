@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"log/slog"
+	"runtime/debug"
 
 	"github.com/spf13/cobra"
 )
@@ -17,12 +18,19 @@ type App struct {
 
 var (
 	Version string
-	Date    string
 	Commit  string
 )
 
 func printVersion() string {
-	return fmt.Sprintf("Version: %s\nDate: %s\nCommit: %s", Version, Date, Commit)
+	info, ok := debug.ReadBuildInfo()
+	if !ok {
+		return "(unknown)"
+	}
+
+	Version = info.Main.Version
+	Commit = info.Main.Sum
+
+	return fmt.Sprintf("%s\nCommit: %s", Version, Commit)
 }
 
 func NewApp() CMD {
