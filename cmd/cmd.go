@@ -17,12 +17,12 @@ type App struct {
 
 var (
 	Version string
-	Build   string
+	Date    string
 	Commit  string
 )
 
 func printVersion() string {
-	return fmt.Sprintf("Version: %s\nBuild: %s\nCommit: %s", Version, Build, Commit)
+	return fmt.Sprintf("Version: %s\nDate: %s\nCommit: %s", Version, Date, Commit)
 }
 
 func NewApp() CMD {

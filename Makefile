@@ -28,7 +28,7 @@ find_go_pkg_strings_example: $(helpme)
 
 install: $(helpme)
 	@echo "Installing..."
-	@go install -ldflags "-X github.com/vldcreation/helpme/cmd.Version=v1.0.0" .
+	@go install -ldflags "-X github.com/vldcreation/helpme/cmd.Version=v1.0.0 -X github.com/vldcreation/helpme/cmd.Date=$(shell date -u '+%Y-%m-%d_%I:%M:%S%p') -X github.com/vldcreation/helpme/cmd.Commit=$(shell git rev-parse HEAD)" .
 
 clean:
 	@echo "Cleaning..."
