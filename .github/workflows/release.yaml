@@ -21,6 +21,9 @@ jobs:
         with:
           go-version: '1.21'
 
+      - name: Install X11 development libraries
+        run: sudo apt-get install -y libx11-dev
+
       - name: Get Previous Version
         id: get_previous_version
         run: |
