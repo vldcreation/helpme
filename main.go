@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	"github.com/vldcreation/helpme/cmd"
 )
 
@@ -16,7 +14,6 @@ const (
 var Version string
 
 func main() {
-	log.Printf("Version: %s", Version)
 	if err := cmd.NewApp().Execute(); err != nil {
 		println(string(RED_COLOR), err.Error(), string(RESET_COLOR))
 	}
