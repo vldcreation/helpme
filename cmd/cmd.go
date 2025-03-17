@@ -52,6 +52,7 @@ func NewApp() CMD {
 		NewGeneratePasswordCommand().Command(),
 		NewPullCommand().Command(),
 		NewRunTestCommand().Command(),
+		NewEncodeCommand().Command(),
 	)
 
 	return &App{
