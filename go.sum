@@ -28,6 +28,10 @@ github.com/vldcreation/helpme-package/pkg v0.0.0-20250317084023-b056d7e17de8 h1:
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250317084023-b056d7e17de8/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250317085602-d7af81720b25 h1:8dddy6QP4LAzi5Wxxz4BzyvKOX3JDY5Ie146R2OF5eg=
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250317085602-d7af81720b25/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055416-f6df0d664710 h1:MHNPBoj0xa50Vq95pJpd5s/kSADQyaVUt0RQv1Sflsc=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055416-f6df0d664710/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055914-504928e8d42c h1:U5g3aj81HhwRPbsPi9JaVtLjMbKBiZ7ioHQGoQSa6Dw=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055914-504928e8d42c/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.design/x/clipboard v0.7.0 h1:4Je8M/ys9AJumVnl8m+rZnIvstSnYj1fvzqYrU3TXvo=
 golang.design/x/clipboard v0.7.0/go.mod h1:PQIvqYO9GP29yINEfsEn5zSQKAz3UgXmZKzDA6dnq2E=

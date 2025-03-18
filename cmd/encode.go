@@ -14,6 +14,7 @@ type encodeCmd struct {
 	source          string
 	format          string
 	copyToClipboard bool
+	withMimeType    bool
 }
 
 func NewEncodeCommand() *encodeCmd {
@@ -29,6 +30,7 @@ func NewEncodeCommand() *encodeCmd {
 	cmd.PersistentFlags().StringVarP(&apps.source, "source", "s", "", "Source of file or text to encode (eg. /mypath/myfile.png | helloworld)")
 	cmd.PersistentFlags().StringVarP(&apps.format, "format", "f", "", "format encoder to use (eg. base64 | hex). default base64")
 	cmd.PersistentFlags().BoolVarP(&apps.copyToClipboard, "clipboard", "c", false, "Copy to clipboard")
+	cmd.PersistentFlags().BoolVarP(&apps.withMimeType, "mimetype", "m", false, "Show mime type")
 
 	cmd.MarkPersistentFlagRequired("source")
 
@@ -44,7 +46,7 @@ func (c *encodeCmd) Command() *cobra.Command {
 func (c *encodeCmd) Execute(_ *cobra.Command, args []string) {
 	encoder := switchEncoder(c.source, c.encoder)
 	applyFormatEncoder(encoder, c.source, c.format)
-	encoder.ApplyOpt(encode.WithCopyToClipboard(c.copyToClipboard))
+	encoder.ApplyOpt(encode.WithCopyToClipboard(c.copyToClipboard), encode.WithMimeType(c.withMimeType))
 
 	out, err := encoder.Encode()
 	if err != nil {
