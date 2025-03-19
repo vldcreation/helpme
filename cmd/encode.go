@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"errors"
+
 	"github.com/spf13/cobra"
 	"github.com/vldcreation/helpme-package/pkg/encode"
 	"github.com/vldcreation/helpme/util"
@@ -45,7 +47,9 @@ func (c *encodeCmd) Command() *cobra.Command {
 
 func (c *encodeCmd) Execute(_ *cobra.Command, args []string) {
 	encoder := switchEncoder(c.source, c.encoder)
-	applyFormatEncoder(encoder, c.source, c.format)
+	if err := applyFormatEncoder(encoder, c.source, c.format); err != nil {
+		panic(err.Error())
+	}
 	encoder.ApplyOpt(encode.WithCopyToClipboard(c.copyToClipboard), encode.WithMimeType(c.withMimeType))
 
 	out, err := encoder.Encode()
@@ -68,13 +72,18 @@ func switchEncoder(source string, encoder string) encode.Encoder {
 	}
 }
 
-func applyFormatEncoder(e encode.Encoder, source string, format string) {
+func applyFormatEncoder(e encode.Encoder, source string, format string) error {
 	switch format {
 	case "base64":
 		e.ApplyOpt(encode.WithFormatEncoder(encode.NewBase64Encoder(source)))
 	case "base32":
 		e.ApplyOpt(encode.WithFormatEncoder(encode.NewBase32Encoder(source)))
+	case "hex":
+		e.ApplyOpt(encode.WithFormatEncoder(&encode.HexEncoder{}))
+	case "gob":
+		e.ApplyOpt(encode.WithFormatEncoder(encode.NewGobEncoder()))
 	default:
-		e.ApplyOpt(encode.WithFormatEncoder(encode.NewBase64Encoder(source)))
+		return errors.New("format encoder not available")
 	}
+	return nil
 }

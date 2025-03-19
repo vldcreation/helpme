@@ -32,6 +32,12 @@ github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055416-f6df0d664710 h1:
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055416-f6df0d664710/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055914-504928e8d42c h1:U5g3aj81HhwRPbsPi9JaVtLjMbKBiZ7ioHQGoQSa6Dw=
 github.com/vldcreation/helpme-package/pkg v0.0.0-20250318055914-504928e8d42c/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250319033435-58fa32f9147b h1:JquykNyIXDaZDhSGp1L4d4w2pwqQvFPVgaiE/jIXdKs=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250319033435-58fa32f9147b/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250319033709-b3a0698e514b h1:WDXZ+obULQSImxiqbBk/nRl7boBfD2p3+zr2tNYk6As=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250319033709-b3a0698e514b/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250319034329-1996718746bf h1:qTGn1Lmv/NMQUHAyAd5E+pYdvcqZ1VSX/SBDvdv41zQ=
+github.com/vldcreation/helpme-package/pkg v0.0.0-20250319034329-1996718746bf/go.mod h1:Vu8Z4QG5jligqd8GJ3iOKnBDHZd3yyQ7YydBmAD1JGk=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.design/x/clipboard v0.7.0 h1:4Je8M/ys9AJumVnl8m+rZnIvstSnYj1fvzqYrU3TXvo=
 golang.design/x/clipboard v0.7.0/go.mod h1:PQIvqYO9GP29yINEfsEn5zSQKAz3UgXmZKzDA6dnq2E=
