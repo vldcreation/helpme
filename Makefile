@@ -1,4 +1,4 @@
-.PHONY: gen_mem_password_example gen_secure_password_example find_go_pkg_strings_example build install clean pull
+.PHONY: gen_mem_password_example gen_secure_password_example find_go_pkg_strings_example build install clean pull build
 
 build_dir=./bin
 helpme=$(build_dir)/helpme
@@ -29,6 +29,8 @@ find_go_pkg_strings_example: $(helpme)
 install: $(helpme)
 	@echo "Installing..."
 	@go install -ldflags "-X github.com/vldcreation/helpme/cmd.Version=v1.0.0 -X github.com/vldcreation/helpme/cmd.Date=$(shell date -u '+%Y-%m-%d_%I:%M:%S%p') -X github.com/vldcreation/helpme/cmd.Commit=$(shell git rev-parse HEAD)" .
+
+build: clean $(helpme)
 
 clean:
 	@echo "Cleaning..."
