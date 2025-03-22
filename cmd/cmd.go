@@ -90,6 +90,7 @@ func NewApp() CMD {
 		NewPullCommand().Command(),
 		NewRunTestCommand().Command(),
 		NewEncodeCommand().Command(),
+		NewTrackCommand().Command(),
 	)
 
 	app.root = rootCmd

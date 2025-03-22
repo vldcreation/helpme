@@ -1,0 +1,10 @@
+app:
+  channel: "telegram" # local | telegram
+  idle: "20s"
+  debug: true
+file:
+  path: "~/Documents/track"
+  name: "" # leave empty to use current date
+telegram:
+  token: "<telegram_bot_token>"
+  chat_id: "<telegram_chat_id>"
