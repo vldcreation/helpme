@@ -103,6 +103,24 @@ helpme runtest -F mycode.go -f TestFunc -i test.in -o test.out
 helpme pull -u username -r repo-name -H github.com
 ```
 
+### Tracking Clipboard Content
+```bash
+helpme trackclipboard -C /path/to/track.yaml
+```
+sample config:
+```yaml
+app:
+  channel: "telegram" # local | telegram
+  idle: "20s"
+  debug: true
+file:
+  path: "~/Documents/track"
+  name: "" # leave empty to use current date
+telegram:
+  token: "<telegram_bot_token>"
+  chat_id: "<telegram_chat_id>"
+```
+
 ## Development
 
 1. Fork the repository
