@@ -4,7 +4,7 @@ go 1.24.1
 
 require (
 	github.com/spf13/cobra v1.8.1
-	github.com/vldcreation/helpme-package/pkg v0.0.0-20250322113153-86e77761b743
+	github.com/vldcreation/helpme-package/pkg v0.0.0-20250325060559-c5bc208abcc7
 	golang.org/x/net v0.35.0
 )
 

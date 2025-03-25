@@ -121,6 +121,19 @@ telegram:
   chat_id: "<telegram_chat_id>"
 ```
 
+### Share Files Over Network
+Share your workspace directory with other devices on the same network.
+
+```bash
+helpme sharefile -D /path/to/workspace -P 9000
+```
+
+Flags:
+  -D, --dir string   Root directory of workspace to share
+  -P, --port string  Port number for the file server (default "9000")
+
+Once started, other devices on the same network can access the shared files through their web browser using the displayed local IP address and port number.
+
 ## Development
 
 1. Fork the repository

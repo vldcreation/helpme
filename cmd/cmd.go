@@ -91,6 +91,7 @@ func NewApp() CMD {
 		NewRunTestCommand().Command(),
 		NewEncodeCommand().Command(),
 		NewTrackCommand().Command(),
+		NewShareFileCommand().Command(),
 	)
 
 	app.root = rootCmd
