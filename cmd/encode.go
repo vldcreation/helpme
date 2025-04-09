@@ -33,8 +33,8 @@ func NewEncodeCommand() *encodeCmd {
 	cmd.PersistentFlags().StringVarP(&apps.encoder, "encoder", "e", "", "Source encoder to encode(eg. file | text default: text)")
 	cmd.PersistentFlags().StringVarP(&apps.source, "source", "s", "", "Source of file or text to encode (eg. /mypath/myfile.png | helloworld)")
 	cmd.PersistentFlags().StringVarP(&apps.format, "format", "f", "", fmt.Sprintf("format encoder to use (available: %s). default base64", strings.Join(encode.AvailableFormatEncoder, ", ")))
-	cmd.PersistentFlags().BoolVarP(&apps.copyToClipboard, "clipboard", "c", false, "Copy to clipboard")
-	cmd.PersistentFlags().BoolVarP(&apps.withMimeType, "mimetype", "m", false, "Show mime type")
+	cmd.PersistentFlags().BoolVarP(&apps.copyToClipboard, "clipboard", "w", false, "Copy to clipboard")
+	cmd.PersistentFlags().BoolVarP(&apps.withMimeType, "mimetype", "t", false, "Show mime type")
 
 	cmd.MarkPersistentFlagRequired("source")
 
