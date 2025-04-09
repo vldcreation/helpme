@@ -11,6 +11,7 @@ import (
 )
 
 type CMD interface {
+	Root() *cobra.Command
 	Execute() error
 }
 
@@ -104,4 +105,8 @@ func (app *App) Execute() error {
 		return err
 	}
 	return nil
+}
+
+func (app *App) Root() *cobra.Command {
+	return app.root
 }
