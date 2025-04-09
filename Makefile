@@ -10,7 +10,7 @@ all: $(helpme) gen_mem_password_example gen_secure_password_example find_go_pkg_
 GO_FILES := $(shell git ls-files '*.go')
 .PHONY: $(GO_FILES)
 
-$(helpme): $(GO_FILES)
+$(helpme): $(GO_FILES) test
 	@echo "Building..."
 	@go build -o $(build_dir)/helpme .
 
@@ -30,7 +30,11 @@ install: $(helpme)
 	@echo "Installing..."
 	@go install -ldflags "-X github.com/vldcreation/helpme/cmd.Version=v1.0.0 -X github.com/vldcreation/helpme/cmd.Date=$(shell date -u '+%Y-%m-%d_%I:%M:%S%p') -X github.com/vldcreation/helpme/cmd.Commit=$(shell git rev-parse HEAD)" .
 
-build: clean $(helpme)
+build: clean test $(helpme)
+
+test:
+	@echo "Testing..."
+	@go test $(go list ./... | grep -v /vendor/ | grep -v /local/ | grep -v /examples/) -coverprofile .testCoverage.txt
 
 clean:
 	@echo "Cleaning..."

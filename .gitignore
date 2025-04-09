@@ -5,3 +5,4 @@ bin
 
 # dev
 profiles
+.testCoverage.txt
