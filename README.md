@@ -30,6 +30,31 @@ go install
 ```
 
 ## Usage
+### Help Command
+Display help information.
+```bash
+helpme help
+helpme [command] help
+
+Available Commands:
+  completion        Generate the autocompletion script for the specified shell
+  encode            encode file or text
+  find              Find an example for a given function
+  generate-password Generate a password
+  help              Help about any command
+  pull              Pull depdency golang
+  runtest           Run Test sample with sample output
+  setup             Setup project templates
+  sharefile         Share workspace directory with same network
+  trackclipboard    Track data from clipboard and send to your channel
+
+Flags:
+  -c, --cpuprofile   enable cpu profiling
+  -h, --help         help for helpme
+  -m, --memprofile   enable memory profiling
+  -v, --version      version for helpme
+```
+
 
 ### Find Command
 Search for code examples in different programming languages.
@@ -57,6 +82,12 @@ Generate secure passwords with customizable options.
 
 ```bash
 helpme generate-password [flags]
+
+Flags:
+  -h, --help       help for generate-password
+  -l, --len int    Password length (words or chars)
+  -q, --qty int    Quantity of passwords to generate (default 1)
+  -t, --type int   Password type (0: word, 1: phrase, 2: word with special, 3: phrase with special, 4: secure)
 ```
 
 ### Pull Command
