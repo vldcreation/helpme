@@ -27,12 +27,13 @@ func NewShareFileCommand() *shareFileCmd {
 	cmd.PersistentFlags().StringVarP(&apps.port, "port", "P", "9000", "Port of server")
 	cmd.MarkPersistentFlagRequired("root")
 
+	cmd.Run = apps.Execute
+
 	apps.cmd = cmd
 	return apps
 }
 
 func (c *shareFileCmd) Command() *cobra.Command {
-	c.cmd.Run = c.Execute
 	return c.cmd
 }
 

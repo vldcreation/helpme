@@ -28,12 +28,12 @@ func NewGeneratePasswordCommand() *generatePasswordCmd {
 	cmd.PersistentFlags().IntVarP(&apps.len, "len", "l", 0, "Password length (words or chars)")
 	cmd.PersistentFlags().IntVarP(&apps.passType, "type", "t", 0, "Password type (0: word, 1: phrase, 2: word with special, 3: phrase with special, 4: secure)")
 
+	cmd.Run = apps.Execute
 	apps.cmd = cmd
 	return apps
 }
 
 func (c *generatePasswordCmd) Command() *cobra.Command {
-	c.cmd.Run = c.Execute
 	return c.cmd
 }
 

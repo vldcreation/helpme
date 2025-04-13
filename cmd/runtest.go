@@ -34,13 +34,13 @@ func NewRunTestCommand() *runtestCmd {
 	cmd.MarkPersistentFlagRequired("file")
 	cmd.MarkPersistentFlagRequired("input")
 	cmd.MarkPersistentFlagRequired("output")
+	cmd.Run = apps.Execute
 
 	apps.cmd = cmd
 	return apps
 }
 
 func (c *runtestCmd) Command() *cobra.Command {
-	c.cmd.Run = c.Execute
 	return c.cmd
 }
 

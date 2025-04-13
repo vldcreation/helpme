@@ -34,12 +34,13 @@ func NewFindCommand() *findCommand {
 
 	cmd.MarkPersistentFlagRequired("lang")
 
+	cmd.Run = apps.Execute
+
 	apps.cmd = cmd
 	return apps
 }
 
 func (c *findCommand) Command() *cobra.Command {
-	c.cmd.Run = c.Execute
 	return c.cmd
 }
 

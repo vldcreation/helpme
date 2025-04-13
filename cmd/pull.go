@@ -32,12 +32,13 @@ func NewPullCommand() *pullCmd {
 	cmd.MarkPersistentFlagRequired("user")
 	cmd.MarkPersistentFlagRequired("repo")
 
+	cmd.Run = apps.Execute
+
 	apps.cmd = cmd
 	return apps
 }
 
 func (c *pullCmd) Command() *cobra.Command {
-	c.cmd.Run = c.Execute
 	return c.cmd
 }
 

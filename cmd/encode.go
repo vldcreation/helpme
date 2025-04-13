@@ -38,12 +38,13 @@ func NewEncodeCommand() *encodeCmd {
 
 	cmd.MarkPersistentFlagRequired("source")
 
+	cmd.Run = apps.Execute
+
 	apps.cmd = cmd
 	return apps
 }
 
 func (c *encodeCmd) Command() *cobra.Command {
-	c.cmd.Run = c.Execute
 	return c.cmd
 }
 

@@ -26,12 +26,13 @@ func NewTrackCommand() *trackCmd {
 
 	cmd.MarkPersistentFlagRequired("config")
 
+	cmd.Run = apps.Execute
+
 	apps.cmd = cmd
 	return apps
 }
 
 func (c *trackCmd) Command() *cobra.Command {
-	c.cmd.Run = c.Execute
 	return c.cmd
 }
 
