@@ -12,6 +12,7 @@ type shareFileCmd struct {
 	// flags
 	rootDir string
 	port    string
+	auth    string
 }
 
 func NewShareFileCommand() *shareFileCmd {
@@ -25,6 +26,7 @@ func NewShareFileCommand() *shareFileCmd {
 
 	cmd.PersistentFlags().StringVarP(&apps.rootDir, "dir", "D", "", "Root directory of workspace")
 	cmd.PersistentFlags().StringVarP(&apps.port, "port", "P", "9000", "Port of server")
+	cmd.PersistentFlags().StringVarP(&apps.auth, "auth", "A", "", "Auth of server, Currently only support basic auth, format: username:password")
 	cmd.MarkPersistentFlagRequired("root")
 
 	cmd.Run = apps.Execute
@@ -38,7 +40,7 @@ func (c *shareFileCmd) Command() *cobra.Command {
 }
 
 func (c *shareFileCmd) Execute(_ *cobra.Command, args []string) {
-	if err := fileserver.New(c.rootDir, util.GetLocalIP(), fileserver.WithPort(c.port)).Run(); err != nil {
+	if err := fileserver.New(c.rootDir, util.GetLocalIP(), fileserver.WithPort(c.port), fileserver.WithAuth(c.auth)).Run(); err != nil {
 		util.PrintlnRed(err.Error())
 	}
 }
